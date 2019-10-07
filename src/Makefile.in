@@ -129,9 +129,9 @@ am__uninstall_files_from_dir = { \
   }
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(includedir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
-liblog_la_LIBADD =
-am_liblog_la_OBJECTS = liblog.lo
-liblog_la_OBJECTS = $(am_liblog_la_OBJECTS)
+librecord_la_LIBADD =
+am_librecord_la_OBJECTS = record.lo
+librecord_la_OBJECTS = $(am_librecord_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
@@ -170,8 +170,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(liblog_la_SOURCES)
-DIST_SOURCES = $(liblog_la_SOURCES)
+SOURCES = $(librecord_la_SOURCES)
+DIST_SOURCES = $(librecord_la_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -317,9 +317,9 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-lib_LTLIBRARIES = liblog.la
-liblog_la_SOURCES = liblog.c
-include_HEADERS = liblog.h
+lib_LTLIBRARIES = librecord.la
+librecord_la_SOURCES = record.c
+include_HEADERS = record.h
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -405,8 +405,8 @@ clean-libLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-liblog.la: $(liblog_la_OBJECTS) $(liblog_la_DEPENDENCIES) $(EXTRA_liblog_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(LINK) -rpath $(libdir) $(liblog_la_OBJECTS) $(liblog_la_LIBADD) $(LIBS)
+librecord.la: $(librecord_la_OBJECTS) $(librecord_la_DEPENDENCIES) $(EXTRA_librecord_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(LINK) -rpath $(libdir) $(librecord_la_OBJECTS) $(librecord_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -414,7 +414,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/liblog.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/record.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

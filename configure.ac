@@ -1,4 +1,4 @@
-AC_INIT([liblog], [0.1], [https://github.com/Maloux1/liblog.git])
+AC_INIT([record], [0.1], [https://github.com/Maloux1/record.git])
 
 AM_INIT_AUTOMAKE([-Wall])
 

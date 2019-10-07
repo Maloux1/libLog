@@ -1,3 +1,3 @@
-lib_LTLIBRARIES = liblog.la
-liblog_la_SOURCES = liblog.c
-include_HEADERS = liblog.h
+lib_LTLIBRARIES = librecord.la
+librecord_la_SOURCES = record.c
+include_HEADERS = record.h

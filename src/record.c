@@ -1,8 +1,7 @@
-#include "liblog.h"
+#include "record.h"
+#include "config.h"
 
-#include <config.h>
-
-void libLog(char logType, char * title, char * message, char checkErrno, char * FILE, int LINE){
+void record(char logType, char * title, char * message, char checkErrno, char * FILE, int LINE){
 	
 	int trueErrno = errno;
 	time_t logTimeValue = time(NULL);
@@ -10,25 +9,25 @@ void libLog(char logType, char * title, char * message, char checkErrno, char * 
 	int outFile = fileno(stderr);
 
 	switch (logType){
-		case LIBLOG_LOG_INFO:
+		case RECORD_LOG_INFO:
 			strncpy(logErrorType, "INFO", 16);
 			strncpy(openColor, "\x1b[36m", 9);
 			outFile = fileno(stdout);
 			break;
-		case LIBLOG_LOG_DEBUG:
+		case RECORD_LOG_DEBUG:
 			strncpy(logErrorType, "DEBUG", 16);
 			strncpy(openColor, "\x1b[35m", 9);
 			outFile = fileno(stdout);
 			break;
-		case LIBLOG_LOG_WARNING:
+		case RECORD_LOG_WARNING:
 			strncpy(logErrorType, "WARNING", 16);
 			strncpy(openColor, "\x1b[33m", 9);
 			break;
-		case LIBLOG_LOG_ERROR:
+		case RECORD_LOG_ERROR:
 			strncpy(logErrorType, "ERROR", 16);
 			strncpy(openColor, "\x1b[31m", 9);
 			break;
-		case LIBLOG_LOG_FATALERROR:
+		case RECORD_LOG_FATALERROR:
 			strncpy(logErrorType, "FATAL_ERROR", 16);
 			strncpy(openColor, "\x1b[1;31m", 9);
 			break;
