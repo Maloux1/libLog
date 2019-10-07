@@ -1,5 +1,7 @@
 #include "liblog.h"
 
+#include <config.h>
+
 void libLog(char logType, char * title, char * message, char checkErrno, char * FILE, int LINE){
 	
 	int trueErrno = errno;
