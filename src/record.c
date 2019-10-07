@@ -47,4 +47,6 @@ void record(char logType, char * title, char * message, char checkErrno, char * 
 	if (checkErrno && trueErrno != 0){
 		dprintf(outFile, "> errno is %d\n> %s\n" , trueErrno, strerror(trueErrno));
 	}
+	fflush(stdout);
+	fflush(stderr);
 }
