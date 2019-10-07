@@ -38,14 +38,13 @@ void record(char logType, char * title, char * message, char checkErrno, char * 
 	}
 	
 	if (isatty(outFile)){
-		dprintf(outFile, "\x1b[1m%.24s\x1b[0m [%s] %s%-11s\x1b[0m \x1b[4m%s:%d\x1b[0m => %s\n", ctime(&logTimeValue), title, openColor, logErrorType, FILE, LINE, message);
+		dprintf(outFile, "\x1b[1m%.24s\x1b[0m [%s] %s%-11s\x1b[0m \x1b[4m%s:%d\x1b[0m %s\n", ctime(&logTimeValue), title, openColor, logErrorType, FILE, LINE, message);
 	}
 	else {
-		dprintf(outFile, "%.24s [%s] %-11s %s:%d => %s\n", ctime(&logTimeValue), title, logErrorType, FILE, LINE, message);
+		dprintf(outFile, "%.24s [%s] %-11s %s:%d %s\n", ctime(&logTimeValue), title, logErrorType, FILE, LINE, message);
 
 	}
-	if (checkErrno && errno != 0){
+	if (checkErrno && trueErrno != 0){
 		dprintf(outFile, "> errno is %d\n> %s\n" , trueErrno, strerror(trueErrno));
 	}
-	dprintf(outFile, "\n");
 }
